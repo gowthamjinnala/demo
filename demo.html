@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MedScheduler Login</title>
+<style>
+  /* Reset */
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  
+  body, html {
+    height: 100%;
+    overflow: hidden;
+    /* Professional gradient background */
+    background: linear-gradient(135deg, #1f3c88, #2980b9, #1abc9c, #16a085);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #34495e;
+  }
+
+  @keyframes gradientShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  /* Bubble animation */
+  .bubbles {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; overflow: hidden;
+  }
+  .bubbles span {
+    position: absolute; bottom: -100px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    animation: rise linear infinite;
+  }
+  .bubbles span:nth-child(1){width:40px;height:40px;left:10%;animation-duration:15s;}
+  .bubbles span:nth-child(2){width:25px;height:25px;left:25%;animation-duration:12s;}
+  .bubbles span:nth-child(3){width:50px;height:50px;left:45%;animation-duration:18s;}
+  .bubbles span:nth-child(4){width:35px;height:35px;left:65%;animation-duration:14s;}
+  .bubbles span:nth-child(5){width:20px;height:20px;left:80%;animation-duration:10s;}
+  @keyframes rise {0%{transform: translateY(0) scale(1); opacity:0;}50%{opacity:0.5;}100%{transform: translateY(-1100px) scale(1.2); opacity:0;}}
+
+  /* Login container */
+  .container {
+    position: relative; z-index: 2;
+    background: rgba(255,255,255,0.95);
+    width: 400px; border-radius: 15px;
+    box-shadow: 0 25px 50px rgba(50,50,93,0.15);
+    padding: 50px 40px 50px; text-align: center;
+  }
+
+  /* Logo + caption */
+  .logo {display:flex; flex-direction:column; align-items:center; margin-bottom:20px;}
+  .logo svg {width:60px;height:60px; stroke:#2980b9; stroke-width:2; fill:none; margin-bottom:10px;}
+  .logo h1 {font-size:2rem; font-weight:700; color:#2980b9; letter-spacing:1.2px; margin-bottom:5px;}
+  .logo p {font-weight:500; font-size:1.1rem; color:#555;}
+
+  /* Inputs */
+  .input-group {margin-bottom:20px; position:relative;}
+  input {
+    width:100%; padding:14px 20px;
+    border:1.5px solid #bdc3c7; border-radius:8px; font-size:1rem;
+    transition:border-color 0.3s ease;
+  }
+  input:focus {border-color:#2980b9; outline:none; box-shadow:0 0 8px rgba(41,128,185,0.3);}
+
+  /* Buttons */
+  button {
+    width:100%; padding:14px; border:none; border-radius:8px;
+    color:white; font-size:1rem; font-weight:700;
+    cursor:pointer; transition: background-color 0.3s ease; margin-bottom:10px;
+  }
+
+  button.login {
+    background-color:#2980b9;
+  }
+  button.login:hover {background-color:#1f618d;}
+
+  /* Emergency button in red */
+  button.emergency {
+    background-color: #e74c3c; /* red color */
+  }
+  button.emergency:hover {
+    background-color: #c0392b; /* darker red on hover */
+  }
+
+  /* Sign Up / Register Now */
+  .signup-register {
+    margin-top:15px; font-size:1rem; color:#2980b9; font-weight:600; user-select:none;
+  }
+  .signup-register span {cursor:pointer; padding:0 8px; transition: color 0.3s;}
+  .signup-register span:hover {color:#1f618d; text-decoration:underline;}
+  .signup-register .separator {cursor:default; color:#777; padding:0 5px; user-select:none;}
+
+  @media(max-width:450px){.container{width:90%;padding:40px 25px 50px;}}
+</style>
+</head>
+<body>
+
+<div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="container">
+  <div class="logo">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="32" cy="32" r="28"/>
+      <path d="M20 30 L44 30 M32 18 L32 46"/>
+      <circle cx="32" cy="54" r="6"/>
+    </svg>
+    <h1>MedScheduler</h1>
+    <p>Book Your Appointment</p>
+  </div>
+
+  <div class="input-group">
+    <input type="tel" placeholder="Phone Number" />
+  </div>
+  <div class="input-group">
+    <input type="password" placeholder="Password" />
+  </div>
+
+  <button class="login">Login</button>
+  <button class="emergency">🚑 Emergency Accident</button>
+
+  <div class="signup-register">
+    <span class="signup">Sign Up</span>
+    <span class="separator">/</span>
+    <span class="register">Register Now?</span>
+  </div>
+</div>
+
+</body>
+</html>
